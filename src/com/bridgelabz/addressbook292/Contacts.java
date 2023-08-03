@@ -2,6 +2,7 @@ package com.bridgelabz.addressbook292;
 
 public class Contacts {
 
+
     private String firstName, lastName, address, city, state, email;
     private int zip;
     private long phoneNumber;
@@ -15,6 +16,9 @@ public class Contacts {
         this.email = email;
         this.zip = zip;
         this.phoneNumber = phoneNumber;
+    }
+
+    public Contacts() {
     }
 
     public String getFirstName() {
