@@ -10,7 +10,7 @@ public class AddressBookSystem extends Contacts {
     Scanner scanner = new Scanner(System.in);
     List<Contacts> Contactslist = new ArrayList<>();
 
-    public void addContacts(){
+    public void addContacts() {
         System.out.println("Enter First Name : ");
         String firstName = scanner.nextLine();
         contacts.setFirstName(firstName);
@@ -43,15 +43,17 @@ public class AddressBookSystem extends Contacts {
         long phoneNumber = scanner.nextLong();
         contacts.setPhoneNumber(phoneNumber);
 
-       Contactslist.add(contacts);
+        Contactslist.add(contacts);
         System.out.println("Person Information has created sucessfully");
     }
-    public void displayContacts(){
-        if(Contactslist.isEmpty()){
+
+    public void displayContacts() {
+        if (Contactslist.isEmpty()) {
             System.out.println("AddressBook is empty.");
         }
         System.out.println("Displaying Contacts of Address Book");
-        for (Contacts contacts: Contactslist);{
+        for (Contacts contacts : Contactslist) ;
+        {
             System.out.println(contacts.getFirstName());
             System.out.println(contacts.getLastName());
             System.out.println(contacts.getAddress());
@@ -61,5 +63,50 @@ public class AddressBookSystem extends Contacts {
             System.out.println(contacts.getZip());
             System.out.println(contacts.getPhoneNumber());
         }
+
     }
+
+    public void editContacts(String firstName, String lastname) {
+        for (Contacts contacts : Contactslist) {
+            if (contacts.getFirstName().equals(firstName) || contacts.getLastName().equals(lastname)) {
+                System.out.println("Enter new First Name:");
+                String firstNameString = scanner.nextLine();
+                contacts.setFirstName(firstName);
+
+                System.out.println("Enter new Last Name:");
+                String lastNameString = scanner.nextLine();
+                contacts.setLastName(lastname);
+
+                System.out.println("Enter new Address:");
+                String address = scanner.nextLine();
+                contacts.setAddress(address);
+
+                System.out.println("Enter new City:");
+                String city = scanner.nextLine();
+                contacts.setCity(city);
+
+                System.out.println("Enter new State:");
+                String state = scanner.nextLine();
+                contacts.setState(state);
+
+                System.out.println("Enter new Email:");
+                String email = scanner.nextLine();
+                contacts.setEmail(email);
+
+                System.out.println("Enter new ZIP:");
+                int zip = scanner.nextInt();
+                contacts.setZip(zip);
+
+                System.out.println("Enter new Phone Number:");
+                long phoneNumber = scanner.nextLong();
+                contacts.setPhoneNumber(phoneNumber);
+
+                System.out.println("Contact updated successfully");
+
+            }
+        }
+        System.out.println("Contact not found");
+    }
+
 }
+
