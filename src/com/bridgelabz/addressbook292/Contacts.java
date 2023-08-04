@@ -85,7 +85,7 @@ public class Contacts {
         this.phoneNumber = phoneNumber;
     }
 
-    @Override
+   /* @Override
     public String toString() {
         return "Contacts{" +
                 "firstName='" + firstName + '\'' +
@@ -97,5 +97,5 @@ public class Contacts {
                 ", zip=" + zip +
                 ", phoneNumber=" + phoneNumber +
                 '}';
-    }
+    }*/
 }

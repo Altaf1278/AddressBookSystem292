@@ -1,14 +1,40 @@
 package com.bridgelabz.addressbook292;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class AddressBookSystem extends Contacts {
 
     Contacts contacts = new Contacts();
     Scanner scanner = new Scanner(System.in);
-    List<Contacts> Contactslist = new ArrayList<>();
+   private List<Contacts> Contactslist = new ArrayList<>();
+   private Map<String,List<Contacts>> newAddressBook = new HashMap<>();
+
+
+    public void addAddressBook() {
+        System.out.println("Enter the name of the new address book:");
+        String name = scanner.nextLine();
+        newAddressBook.put(name, new ArrayList<Contacts>());
+        System.out.println("Address book '" + name + "' added successfully.");
+    }
+    public void displayAddressBooks() {
+        if (newAddressBook.isEmpty()) {
+            System.out.println("No address books found.");
+            return;
+        }
+        System.out.println("List of address books:");
+        for (String name : newAddressBook.keySet()) {
+            System.out.println(name);
+        }
+    }
+    public void openAddressBook() {
+        System.out.println("Enter the name of the address book you want to open:");
+        String name = scanner.nextLine();
+        List<Contacts> addressBooklist = newAddressBook.get(name);
+        if (addressBooklist == null) {
+            System.out.println("No address book found with the given name.");
+            return;
+        }
+    }
 
     public void addContacts() {
         boolean addingContacts = true;

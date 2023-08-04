@@ -10,11 +10,14 @@ public class AddressBookMain {
 
         while (true) {
             System.out.println("Enter 0 to Exit.");
-            System.out.println("Enter 1 to Add Contacts Details");
-            System.out.println("Enter 2 to Display All Contacts Details");
-            System.out.println("Enter 3 to Edit existing Contacts");
-            System.out.println("Enter 4 to Delete. ");
-            System.out.println("Enter 5 to Quit: ");
+            System.out.println("Enter 1 to Add Address Book");
+            System.out.println("Enter 2 to Display Address Book");
+            System.out.println("Enter 3 to Open Address Book");
+            System.out.println("Enter 4 to Add Contacts Details");
+            System.out.println("Enter 5 to Display All Contacts Details");
+            System.out.println("Enter 6 to Edit existing Contacts");
+            System.out.println("Enter 7 to Delete. ");
+            System.out.println("Enter 8 to Quit: ");
             int select = scanner.nextInt();
             scanner.nextLine();
 
@@ -23,26 +26,35 @@ public class AddressBookMain {
                     System.out.println("Exiting Address Book");
                     System.exit(0);
                 case 1:
-                    addressBookSystem.addContacts();
+                    addressBookSystem.addAddressBook();
                     break;
                 case 2:
-                    addressBookSystem.displayContacts();
+                    addressBookSystem.displayAddressBooks();
                     break;
                 case 3:
+                    addressBookSystem.openAddressBook();
+                    break;
+                case 4:
+                    addressBookSystem.addContacts();
+                    break;
+                case 5:
+                    addressBookSystem.displayContacts();
+                    break;
+                case 6:
                     System.out.println("Enter first name of the contact to edit:");
                     String firstName = scanner.nextLine();
                     System.out.println("Enter last name of the contact to edit: ");
                     String lastName = scanner.nextLine();
                     addressBookSystem.editContacts(firstName, lastName);
                     break;
-                case 4:
+                case 7:
                     System.out.println("Enter first name to delete:");
                     String first_Name = scanner.nextLine();
                     System.out.println("Enter last name to delete");
                     String last_Name = scanner.nextLine();
                     addressBookSystem.deleteContact(first_Name,last_Name);
                     break;
-                case 5:
+                case 8:
                     System.exit(0);
                 default:
                     System.out.println(" Contact details not found. ");
