@@ -14,6 +14,7 @@ public class AddressBookMain {
             System.out.println("Enter 2 to Display All Contacts Details");
             System.out.println("Enter 3 to Edit existing Contacts");
             System.out.println("Enter 4 to Delete. ");
+            System.out.println("Enter 5 to Quit: ");
             int select = scanner.nextInt();
             scanner.nextLine();
 
@@ -41,6 +42,8 @@ public class AddressBookMain {
                     String last_Name = scanner.nextLine();
                     addressBookSystem.deleteContact(first_Name,last_Name);
                     break;
+                case 5:
+                    System.exit(0);
                 default:
                     System.out.println(" Contact details not found. ");
             }
