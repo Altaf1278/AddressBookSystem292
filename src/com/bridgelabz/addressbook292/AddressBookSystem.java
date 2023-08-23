@@ -1,12 +1,13 @@
 package com.bridgelabz.addressbook292;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressBookSystem extends Contacts {
 
     Contacts contacts = new Contacts();
     Scanner scanner = new Scanner(System.in);
-   private List<Contacts> Contactslist = new ArrayList<>();
+   public List<Contacts> Contactslist = new ArrayList<>();
    private Map<String,List<Contacts>> newAddressBook = new HashMap<>();
 
 
@@ -90,8 +91,14 @@ public class AddressBookSystem extends Contacts {
             }
         }
     }
+    public List<Contacts> searchByCity(String cityToSearch) {
+        return Contactslist.stream()
+                .filter(contact -> contact.getCity().equalsIgnoreCase(cityToSearch))
+                .collect(Collectors.toList());
+    }
 
-        public void displayContacts () {
+
+    public void displayContacts () {
             if (Contactslist.isEmpty()) {
                 System.out.println("AddressBook is empty.");
             }

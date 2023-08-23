@@ -1,5 +1,6 @@
 package com.bridgelabz.addressbook292;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookMain {
@@ -18,6 +19,8 @@ public class AddressBookMain {
             System.out.println("Enter 6 to Edit existing Contacts");
             System.out.println("Enter 7 to Delete. ");
             System.out.println("Enter 8 to Quit: ");
+            System.out.println("Enter 9 to Search contact by City: ");
+
             int select = scanner.nextInt();
             scanner.nextLine();
 
@@ -56,6 +59,23 @@ public class AddressBookMain {
                     break;
                 case 8:
                     System.exit(0);
+                case 9:
+                    System.out.println("Enter city name to search:");
+                    String cityToSearch = scanner.nextLine();
+
+                    List<Contacts> contactsInCity = addressBookSystem.searchByCity(cityToSearch);
+
+                    if (contactsInCity.isEmpty()) {
+                        System.out.println("No contacts found in the given city.");
+                    } else {
+                        System.out.println("Contacts in " + cityToSearch + ":");
+                        for (Contacts contact : contactsInCity) {
+                            System.out.println("Name: " + contact.getFirstName() + " " + contact.getLastName());
+                            // Print other contact details as needed
+                        }
+                    }
+                    break;
+
                 default:
                     System.out.println(" Contact details not found. ");
             }
