@@ -46,6 +46,10 @@ public class AddressBookSystem extends Contacts {
             String firstName = scanner.nextLine();
             contacts.setFirstName(firstName);
 
+            if (Contactslist.stream().anyMatch(c -> c.getFirstName().equalsIgnoreCase(firstName))) {
+                System.out.println("Duplicate entry found. This person already exists in the address book.");
+                continue;
+            }
             System.out.println("Enter Last Name : ");
             String lastName = scanner.nextLine();
             contacts.setLastName(lastName);
